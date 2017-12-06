@@ -1,2 +1,14 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h2>Sign Up</h2>
+
+<div class="row">
+  <div class="col-md-8">
+    <%= bootstrap_form_for @user do |f| %>
+      <%= f.alert_message "Please fix the errors below" %>
+      <%= f.text_field :name, autofocus: true, placeholder: "Enter name" %>
+      <%= f.text_field :email, placeholder: "Enter email" %>
+      <%= f.password_field :password, placeholder: "Enter password" %>
+      <%= f.password_field :password_confirmation, placeholder: "Confirm password" %>
+      <%= f.submit "Sign Up", class: "btn btn-primary"%>
+    <% end %>
+  </div>
+</div>

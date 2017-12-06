@@ -10,13 +10,13 @@ source 'https://rubygems.org'
 
  group :production do
    # Use pg as the production database for Active Record
+   gem 'rails_12factor'
    gem 'pg'
  end
 
- group :development do
+ group :development, :test do
    # Use sqlite3 as the development database for Active Record
    gem 'sqlite3'
-   gem 'web-console', '~> 2.0'
  end
 
  # Use Puma as the app server
@@ -35,6 +35,26 @@ source 'https://rubygems.org'
 
  gem 'thor', '0.19.1'
 
+ gem 'bootstrap-sass'
+ # Use Bootstrap Forms as a Rails form builder
+ gem 'bootstrap_form'
+
+ group :development, :test do
+   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+   gem 'rspec-rails', '~> 3.0'
+   gem 'rails-controller-testing'
+   gem 'shoulda'
+   gem 'factory_bot_rails', '~> 4.0'
+ end
+
  group :development do
    gem 'listen', '~> 3.0.5'
+   gem 'web-console', '>= 3.3.0'
+   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+   gem 'spring'
+   gem 'spring-watcher-listen', '~> 2.0.0'
  end
+
+ # Used for encrypting passwords
+gem 'bcrypt', '~> 3.1.9'
